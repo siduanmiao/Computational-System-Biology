@@ -1,0 +1,62 @@
+Shell : A program for us to interact with our computer.
+
+\$PATH: the directory our computer search for program.
+
+back to the previous directory:
+
+~~~bash
+[ug519111910299@mu01 ~]$ cd -
+/home
+~~~
+
+~~~bash
+drwxr-xr-x
+~~~
+
+the first keys : d=directory -=normal file l=soft links
+
+the next 3 keys: for owner
+
+the middle 3 keys: for groups that own this file
+
+the last 3 keys : for everyone else
+
+For files:
+
+* r :read the contents
+* w :change the contents
+* x :execute the file
+
+For directories:
+
+* r :to see the list of files in the directory
+* w :rename,create or remove files
+* x :enter the directory(cd), if you want to get to a file, you must have the permission of this directory and all parent directory.
+
+if you have the w in file but not in directory, you can empty it but you can't delete it.
+
+\> ：redirection and rewrite
+
+\> \>:   redirection and append
+
+~~~bash
+[ug519111910299@mu01 sys]$ ls
+block  bus  class  dev  devices  firmware  fs  hypervisor  kernel  module  power
+~~~
+
+this is the kernel parameters of this computer.
+
+when we use redirection, the programs don't know each other, so if we use
+
+~~~bash
+sudo echo 500 > bright_ness
+~~~
+
+we don't have the permission of bright_ness, even we use the sudo, only the echo is sudo, the file don't know you have the permission,so **Permission denied**
+
+~~~bash
+echo 500 > sudo tee birght_ness
+~~~
+
+we all know, the `tee` can write the input to the next file while writing it to your screen.
+
