@@ -60,3 +60,34 @@ echo 500 > sudo tee birght_ness
 
 we all know, the `tee` can write the input to the next file while writing it to your screen.
 
+**Note: the redirection and pipeline all need stdin and stdout**
+
+~~~bash
+[ug519111910299@mu01 lab1]$ echo < blastparser.pl 
+
+[ug519111910299@mu01 lab1]$ history | echo
+
+[ug519111910299@mu01 lab1]$ echo blastparser.pl 
+blastparser.pl
+~~~
+
+because for `echo`, `echo` prints all of its arguments. It does not read from `stdin`. So the second `echo` prints all of its arguments (none) and exits, ignoring the content on `stdin`.
+
+What's more, we should know that all the content of Linux is file, the pipeline and the stdin stdout is all file and filename:
+
+~~~bash
+[ug519111910299@mu01 lab1]$ echo "sssd" | grep ss
+sssd
+[ug519111910299@mu01 lab1]$ grep ss sssd
+grep: sssd: No such file or directory
+[ug519111910299@mu01 lab1]$ grep ss $(echo sssd)
+grep: sssd: No such file or directory
+[ug519111910299@mu01 lab1]$ grep ss <(echo sssd)
+sssd
+~~~
+
+**The difference between `-` and `--`**
+
+for `--` , we use `=` to link the argument and value
+
+for `-`, we can integrate all the argument without values. For those with values, we can't integrate them and the blank between argument and values is optional.

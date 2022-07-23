@@ -179,3 +179,77 @@ lab3:
 example.sh  mcd.sh  test  test.pbs  week6
 ~~~
 
+ **Note:** For some commands, the pattern must use `''` to quote, otherwise it will be wrong, because the pattern is directly transfered into the long string, it might be wrong for some command.
+
+~~~bash
+[ug519111910299@mu01 bioalgorithm]$ ls lab*
+lab1:
+blastparser.pl  protein1  protein2  protein3  u1_human  worm_protein.xpd  worm_protein.xps  worm_protein.xpt
+
+lab2:
+material
+
+lab3:
+example.sh  mcd.sh  test  test.pbs  week6
+[ug519111910299@mu01 bioalgorithm]$ find . -name 'lab*' -type d
+./lab1
+./lab3
+./lab2
+[ug519111910299@mu01 bioalgorithm]$ find . -name "lab*" -type d
+./lab1
+./lab3
+./lab2
+~~~
+
+We can see, for `ls`, it is equal to 
+
+~~~bash
+ls lab1 lab2 lab3
+~~~
+
+for `find` , it is equal to
+
+~~~bash
+find . -name lab1 lab2 lab3 -type d
+~~~
+
+That's the wrong command, so we must use `''` to maintain the command.
+
+The difference between `""`,`''`and not use it.
+
+`""` and `''` can ignore special characters, for `''`, all the character remain its true meaning, for `""`, only `$`,\`,and  \ can serve as special character:
+
+`$` : variable replace and command output replace
+
+` : command output replace
+
+\ : escape string
+
+**This is very important because the following command such as `grep`,`ls`,`find` need this as the value of argument**
+
+Other script: python
+
+~~~python
+import sys
+for arg in reversed(sys.argv[1:]):
+    print(arg)
+~~~
+
+~~~bash
+[ug519111910299@mu01 ~]$ python3 test.py 2 3 4
+4
+3
+2
+[ug519111910299@mu01 ~]$ ./test.py
+-bash: ./test.py: Permission denied
+[ug519111910299@mu01 ~]$ ls
+bioalgorithm  system_bio  test.py
+[ug519111910299@mu01 ~]$ ls -l
+total 12
+drwxr-xr-x 6 ug519111910299 ug2019 4096 Mar 23 10:41 bioalgorithm
+drwxr-xr-x 3 ug519111910299 ug2019 4096 May  9 19:35 system_bio
+-rw-r--r-- 1 ug519111910299 ug2019   61 Jul 23 10:26 test.py
+~~~
+
+we will find that we can use `python3` to run it, but we can't `./` it, because when we use `python3`, the file is read rather than execute.
+
