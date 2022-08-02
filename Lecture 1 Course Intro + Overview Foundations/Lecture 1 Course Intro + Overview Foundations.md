@@ -49,6 +49,8 @@ This is the introduction of AI,the follow content of the book:
 
 * Part III describes more speculative ideas that are widely believed to be important for future research in deep learning.
 
+![image-20220802144943642](Lecture%201%20Course%20Intro%20+%20Overview%20Foundations.assets/image-20220802144943642.png)
+
 ## What is AI
 
 Abstract and formal tasks that are among the most diﬃcult mental undertakings for a human being are among the easiest for a computer.
@@ -109,9 +111,46 @@ For example, an AI system observing an image of a face with one eye in shadow ma
 
 **Summary**
 
+1. Concept
 
+   ![image-20220802144605578](Lecture%201%20Course%20Intro%20+%20Overview%20Foundations.assets/image-20220802144605578.png)
 
+>A Venn diagram showing how deep learning is a kind of representation learning, which is in turn a kind of machine learning, which is used for many but not all approaches to AI. Each section of the Venn diagram includes an example of an AI technology
 
+2. Flowcahrt
+
+   ![image-20220802144711864](Lecture%201%20Course%20Intro%20+%20Overview%20Foundations.assets/image-20220802144711864.png)
+
+>Flowcharts showing how the diﬀerent parts of an AI system relate to each other within diﬀerent AI disciplines. Shaded boxes indicate components that are able to learn from data
+
+## The history of AI( just for understanding)
+
+In fact, deep learning dates back to the 1940s.
+
+![image-20220802152946639](Lecture%201%20Course%20Intro%20+%20Overview%20Foundations.assets/image-20220802152946639.png)
+
+>Two of the three historical waves of artiﬁcial neural nets research, as measured by the frequency of the phrases “cybernetics” and “connectionism” or “neural networks,” according to Google Books (the third wave is too recent to appear). The ﬁrst wave started with cybernetics in the 1940s–1960s, with the development of theories of biological learning (McCulloch and Pitts, 1943; Hebb, 1949) and implementations of the ﬁrst models, such as the perceptron (Rosenblatt, 1958), enabling the training of a single neuron. The second wave started with the connectionist approach of the 1980–1995 period, with backpropagation (Rumelhart et al., 1986a) to train a neural network with one or two hidden layers. The current and third wave, deep learning, started around 2006 (Hinton et al., 2006; Bengio et al., 2007; Ranzato et al., 2007a) and is just now appearing in book form as of 2016. The other two waves similarly appeared in book form much later than the corresponding scientiﬁc activity occurred
+
+Some of the earliest learning algorithms we recognize today were intended to be computational models of biological learning, that is, models of how learning happens or could happen in the brain. As a result, one of the names that deep learning has gone by is **artiﬁcial neural networks (ANNs).**
+
+The ﬁeld of **deep learning** is primarily concerned with how to build computer systems that are able to successfully solve tasks requiring intelligence, while the ﬁeld of **computational neuroscience** is primarily concerned with building more accurate models of how the brain actually works. 
+
+In the 1980s, the second wave of neural network research emerged in great part via a movement called connectionism , or parallel distributed processing. Several key concepts arose during the connectionism movement of the 1980s that remain central to today’s deep learning:
+
+1. **distributed representation**: This is the idea that each input to a system should be represented by many features, and each feature should be involved in the representation of many possible inputs. For example, suppose we have a vision system that can recognize cars, trucks, and birds, and these objects can each be red, green, or blue. One way of representing these inputs would be to have a separate neuron or hidden unit that activates for each of the nine possible combinations: red truck, red car, red bird, green truck, and so on. This requires nine diﬀerent neurons, and each neuron must independently learn the concept of color and object identity. One way to improve on this situation is to use a distributed representation, with three neurons describing the color and three neurons describing the object identity. This requires only six neurons total instead of nine, and the neuron describing redness is able to learn about redness from images of cars, trucks and birds, not just from images of one speciﬁc category of objects.
+
+2. **back-propagation**
+
+During the 1990s, researchers made important advances in modeling sequences with neural networks. the long short-term memory (LSTM) network to resolve some of these diﬃculties. Today, the LSTM is widely used for many sequence modeling tasks
+
+The second wave of neural networks research lasted until the mid-1990s, two factors led to a decline in the popularity of neural networks that lasted until 2007
+
+1. Ventures based on neural networks and other AI technologies began to make unrealistically ambitious claims while seeking investments. When AI research did not fulﬁll these unreasonable expectations, investors were disappointed. 
+2. Simultaneously,other ﬁelds of machine learning made advances. Kernel machines and graphical models both achieved good results on many important tasks.
+
+The third wave of neural networks research began with a breakthrough in 2006. Geoﬀrey Hinton showed that a kind of neural network called a deep belief network could be eﬃciently trained using a strategy called greedy layer-wise pretraining. This wave of neural networks research popularized the use of the term “deep learning” to emphasize that researchers were now able to train deeper neural networks than had been possible before, and to focus attention on the theoretical importance of depth
+
+The third wave began with a focus on new unsupervised learning techniques and the ability of deep models to generalize well from small datasets, but today there is more interest in much older supervised learning algorithms and the ability of deep models to leverage large labeled datasets.
 
 
 
