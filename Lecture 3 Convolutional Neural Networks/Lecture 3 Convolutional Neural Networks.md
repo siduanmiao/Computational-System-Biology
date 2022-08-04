@@ -79,3 +79,16 @@ Number of channels (depth) in the convolutional output layer of the CNN = Number
 ![image-20220804204207696](Lecture%203%20Convolutional%20Neural%20Networks.assets/image-20220804204207696.png)
 
 ![image-20220804204435892](Lecture%203%20Convolutional%20Neural%20Networks.assets/image-20220804204435892.png)
+
+# LeNet-5 CNN practice
+
+The code is attached in this directory, and the performance of this model is :
+
+![image-20220805021846429](Lecture%203%20Convolutional%20Neural%20Networks.assets/image-20220805021846429.png)
+
+
+
+we can see that the performance is great.
+
+
+
