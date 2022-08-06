@@ -97,7 +97,11 @@ We don't need to know the meaning of this vector, it is just a suitable represen
 
 This is the model of RNN
 
-![image-20220805190327465](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220805190327465.png)
+![image-20220806174544824](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806174544824.png)
+
+![image-20220806174506525](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806174506525.png)
+
+![image-20220806174707356](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806174707356.png)
 
 The RNN will memorize all the sequential information we learned earlier
 
@@ -127,7 +131,7 @@ By simply unrolling the time, we can see the equivalence between **feed forward 
 
 **Multi-Layer Perceptron,MLP** = **feed forward net**
 
-Different RNN remembering architecture:
+**Different RNN remembering architecture:**
 
 1.  No output
 
@@ -147,11 +151,13 @@ But what's really cool is that you're updating the weights which are shared at a
 
 ![image-20220806003832670](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806003832670.png)
 
-![image-20220806010039579](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806010039579.png)
 
-we have prediction function every step. we want to predict y at every time point.
 
-For example, I want to translate French into German.
+![image-20220806180304695](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806180304695.png)
+
+
+
+![image-20220806180716271](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806180716271.png)
 
 4. output -> hidden
 
@@ -160,6 +166,10 @@ For example, I want to translate French into German.
 5. label output -> hidden
 
 ![image-20220806004419606](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806004419606.png)
+
+
+
+
 
 BPTT: back-propagation through time
 
@@ -179,4 +189,63 @@ If t minus j is very large, that is, j is very far away from t time steps, if $\
 
 So the effect of j will decay to 0 if t is very far from it.
 
+We can solve this by remembering inputs or intermediate variables over longer time periods. There are many ways to increase the length of the memory.
+
+![image-20220806143557401](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806143557401.png)
+
+ESN:
+
+![image-20220806144202435](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806144202435.png)
+
+![image-20220806144224078](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806144224078.png)
+
 Therefore, we use **Long short-term memory(LSMT)** to deal with this question.
+
+For now, let’s just try to get comfortable with the notation we’ll be using.
+
+![image-20220806152614354](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806152614354.png)
+
+In the above diagram, each line carries an entire vector(**We have known that the word should be encoded for train, and they will be encoded to a vector**), from the output of one node to the inputs of others. The pink circles represent pointwise operations, like vector addition, while the yellow boxes are learned neural network layers. Lines merging denote concatenation, while a line forking denote its content being copied and the copies going to different locations.
+
+**The following formula we ignore the bias**
+
+For simple RNN:
+
+![image-20220806153321459](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806153321459.png)
+
+In standard RNNs, this repeating module will have a very simple structure, **such as a single tanh layer.**
+
+LSTMs also have this chain like structure, but the repeating module has a different structure. Instead of having a single neural network layer, **there are four, interacting in a very special way.**
+
+**We add a carry track `C_t` to Simple RNN to carry information.** LSTM adds a method that can pass information several timesteps apart. Think of having a conveyor belt running together as you process sequences. Information at each point in time can be put on or taken off the conveyor belt, and you can also update the information on the conveyor belt. This preserves information from a long time ago and prevents it from being lost.
+
+![image-20220806153443803](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806153443803.png)
+
+we can see it in another way: the left is naive RNN and the right is LSTM
+
+![img](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/v2-e4f9851cad426dfe4ab1c76209546827_720w.jpg)
+
+![image-20220806160011929](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806160011929.png)
+
+In there we use the two ways to present it and improve our understanding:
+
+**Note: the $\sigma$ is sigmoid activation function**
+
+![image-20220806162740772](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806162740772.png)
+
+![image-20220806163528406](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806163528406.png)
+
+![image-20220806163538413](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806163538413.png)
+
+![image-20220806172105276](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806172105276.png)
+
+==we can use RNN and so on as a encoder and decoder!!==
+
+Like seq2seq:
+
+![image-20220806181022430](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806181022430.png)
+
+![image-20220806181105123](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806181105123.png)
+
+
+
