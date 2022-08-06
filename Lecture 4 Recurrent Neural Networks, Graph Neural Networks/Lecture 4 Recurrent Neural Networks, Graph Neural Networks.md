@@ -1,5 +1,7 @@
 # Vedio
 
+## Introduction
+
 For CNN, we try to **see**
 
 For RNN, we try to read, listen, understand and write.
@@ -58,6 +60,8 @@ This part did not find the explanation, temporarily doubtful, my personal unders
 
 The biggest advantage of RNN is that it can really **make full use of all the above information** to predict the next word, unlike HMM, which can only open a window of N words and only use the first N words to predict the next word. Formally, this is a very "ultimate" model, after all, he uses all the information that can be used in a language model
 
+## RNN
+
 ![image-20220805183649554](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220805183649554.png)
 
 Before we get to the language input model we need to encode
@@ -107,7 +111,9 @@ The RNN will memorize all the sequential information we learned earlier
 
 ![image-20220805193825914](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220805193825914.png)
 
+The previous diagram is a simplified model, the actual model is as follows
 
+![image-20220807003143312](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807003143312.png)
 
 **STOCHASTIC MODELS**
 
@@ -199,6 +205,8 @@ ESN:
 
 ![image-20220806144224078](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806144224078.png)
 
+## LSMT
+
 Therefore, we use **Long short-term memory(LSMT)** to deal with this question.
 
 For now, let’s just try to get comfortable with the notation we’ll be using.
@@ -238,6 +246,8 @@ In there we use the two ways to present it and improve our understanding:
 ![image-20220806163538413](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806163538413.png)
 
 ![image-20220806172105276](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806172105276.png)
+
+## Attention +seq2seq
 
 ==we can use RNN and so on as a encoder and decoder!!==
 
@@ -325,6 +335,8 @@ Another good interpretation:
 
 ![image-20220806211813812](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806211813812.png)
 
+## Transformer
+
 **The transformer is too hard for me now, later I will study it**:
 
 ~~~http
@@ -335,5 +347,23 @@ https://zhuanlan.zhihu.com/p/380426619
 https://zhuanlan.zhihu.com/p/467874444#:~:text=Transformer%E6%98%AF%E7%BA%AF%E7%B2%B9%E5%9F%BA%E4%BA%8E%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%8C%E5%AE%83%E5%9C%A8%E5%A4%84%E7%90%86%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98%E4%B8%8A%E5%8F%96%E5%BE%97%E4%BA%86%E5%BC%95%E4%BA%BA%E6%B3%A8%E7%9B%AE%E7%9A%84%E6%88%90%E7%BB%A9%EF%BC%8C%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%A8%A1%E5%9D%97%E4%B9%9F%E9%80%90%E6%B8%90%E6%88%90%E4%B8%BA%E4%BA%86%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E4%B8%8D%E5%8F%AF%E6%88%96%E7%BC%BA%E7%9A%84%E4%B8%80%E4%B8%AA%E5%BA%95%E5%B1%82%E6%A8%A1%E5%9D%97%E6%8B%BC%E5%9B%BE%EF%BC%8C%E4%B8%94%E6%98%AF%E7%9B%AE%E5%89%8D%E5%8F%91%E5%B1%95%E6%9C%80%E5%BC%BA%E5%8A%BF%E7%9A%84%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9D%97%EF%BC%8C%E5%AE%83%E5%9C%A8CNN%E3%80%81RNN%E6%93%85%E9%95%BF%E7%9A%84%E9%A2%86%E5%9F%9F%E6%94%BB%E5%9F%8E%E6%8E%A0%E5%9C%B0%EF%BC%8C%E7%94%9A%E8%87%B3%E5%AE%9E%E7%8E%B0%E4%BA%86%E8%B6%85%E8%B6%8A%E3%80%82,1.
 ~~~
 
+## GNN
 
+Then we will study the GNN:
+
+
+
+
+
+# Practice
+
+## LSTM
+
+I want to finish a seq2seq but it contains  too much and too difficult for me, so I put it a little later. In this, I do a easy text tagging practice:
+
+**Using LSTM to Implement language sentiment dichotomization on IMDB dataset**
+
+![image-20220807002209851](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807002209851.png)
+
+![image-20220807022245908](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807022245908.png)
 
