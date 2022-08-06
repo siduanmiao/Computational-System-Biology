@@ -247,5 +247,93 @@ Like seq2seq:
 
 ![image-20220806181105123](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806181105123.png)
 
-哈哈哈
+**Attention** is a signal processing mechanism discovered by scientists studying human vision in the 1990s. Practitioners in the field of artificial intelligence have introduced this mechanism into some models with success. At present, attention mechanism has become one of the most widely used "components" in deep learning, especially in natural language processing. In the past two years, **BERT, GPT, Transformer and other models or structures that have been highly exposed have adopted the attention mechanism.**
+
+So, what is attention:
+
+![image-20220806192847873](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806192847873.png)
+
+For example, in basic seq2seq:
+
+![image-20220806194106153](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806194106153.png)
+
+![image-20220806194414143](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806194414143.png)
+
+![image-20220806200001659](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806200001659.png)
+
+![image-20220806203458008](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806203458008.png)
+
+**Attention:**
+
+![image-20220806200527425](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806200527425.png)
+
+**There are other classification of the attention in the next article. I just use it as a primer**
+
+For example:
+
+![image-20220806204811563](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806204811563.png)
+
+So, let's talk about the attention in this classification.
+
+**This is a soft Attention**
+
+![image-20220806203956968](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806203956968.png)
+
+![image-20220806204112795](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806204112795.png)
+
+![image-20220806204732583](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806204732583.png)
+
+![image-20220806204748973](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806204748973.png)
+
+So the soft attention can be summarized as
+
+![image-20220806204932051](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806204932051.png)
+
+**Hard Attention**
+
+![image-20220806205048279](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806205048279.png)
+
+**Global Attention\Local Attention**
+
+![image-20220806205205190](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806205205190.png)
+
+![image-20220806205243908](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806205243908.png)
+
+Before we talk about the **self-attention**, we talk about the **Query-Key-Value**
+
+![image-20220806205711906](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806205711906.png)
+
+![image-20220806205741683](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806205741683.png)
+
+![image-20220806210540767](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806210540767.png)
+
+Now we can talk about the self attention:
+
+![image-20220806210913943](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806210913943.png)
+
+![image-20220806211127660](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806211127660.png)
+
+![image-20220806211211999](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806211211999.png)
+
+![image-20220806211329514](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806211329514.png)
+
+![image-20220806211451523](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806211451523.png)
+
+Another good interpretation:
+
+![image-20220806211729503](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806211729503.png)
+
+![image-20220806211813812](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220806211813812.png)
+
+**The transformer is too hard for me now, later I will study it**:
+
+~~~http
+https://zhuanlan.zhihu.com/p/380426619
+~~~
+
+~~~http
+https://zhuanlan.zhihu.com/p/467874444#:~:text=Transformer%E6%98%AF%E7%BA%AF%E7%B2%B9%E5%9F%BA%E4%BA%8E%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%8C%E5%AE%83%E5%9C%A8%E5%A4%84%E7%90%86%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98%E4%B8%8A%E5%8F%96%E5%BE%97%E4%BA%86%E5%BC%95%E4%BA%BA%E6%B3%A8%E7%9B%AE%E7%9A%84%E6%88%90%E7%BB%A9%EF%BC%8C%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%A8%A1%E5%9D%97%E4%B9%9F%E9%80%90%E6%B8%90%E6%88%90%E4%B8%BA%E4%BA%86%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E4%B8%8D%E5%8F%AF%E6%88%96%E7%BC%BA%E7%9A%84%E4%B8%80%E4%B8%AA%E5%BA%95%E5%B1%82%E6%A8%A1%E5%9D%97%E6%8B%BC%E5%9B%BE%EF%BC%8C%E4%B8%94%E6%98%AF%E7%9B%AE%E5%89%8D%E5%8F%91%E5%B1%95%E6%9C%80%E5%BC%BA%E5%8A%BF%E7%9A%84%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9D%97%EF%BC%8C%E5%AE%83%E5%9C%A8CNN%E3%80%81RNN%E6%93%85%E9%95%BF%E7%9A%84%E9%A2%86%E5%9F%9F%E6%94%BB%E5%9F%8E%E6%8E%A0%E5%9C%B0%EF%BC%8C%E7%94%9A%E8%87%B3%E5%AE%9E%E7%8E%B0%E4%BA%86%E8%B6%85%E8%B6%8A%E3%80%82,1.
+~~~
+
+
 
