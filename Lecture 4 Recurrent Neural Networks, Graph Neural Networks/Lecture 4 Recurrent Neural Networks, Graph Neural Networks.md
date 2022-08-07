@@ -349,7 +349,148 @@ https://zhuanlan.zhihu.com/p/467874444#:~:text=Transformer%E6%98%AF%E7%BA%AF%E7%
 
 ## GNN
 
+A good website to learn GNN
+
+~~~http
+https://distill.pub/2021/gnn-intro/
+~~~
+
 Then we will study the GNN:
+
+![image-20220807104735862](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807104735862.png)
+
+
+
+![image-20220807110517383](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807110517383.png)
+
+But there are more complicated situation:
+
+![image-20220807111858685](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807111858685.png)
+
+![image-20220807112033335](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807112033335.png)
+
+![image-20220807112339430](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807112339430.png)
+
+So, how can we use this information (edge information + node information)
+
+![image-20220807115656320](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807115656320.png)
+
+* $O$ of the link information is $O(N)$, so if the nodes are too much, the input layer is very long
+* if the number of nodes changes, the MLP model is hard to use the input with different length
+* For a graph, the order of nodes is not a information because this the order we give to it, we can assume a node is "A" or "B", and it should node influent the result. But in this MLP model, if we change the order of nodes, the output will change. We can sort the order to deal with it, but it is too expensive.
+
+So, we will talk about the basic formula of GNN.
+
+![image-20220807121555569](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807121555569.png)
+
+
+
+It seems not too difficult from what we see in CNN
+
+![image-20220807122144612](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807122144612.png)
+
+![image-20220807122255455](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807122255455.png)
+
+We can extend this concept:
+
+![image-20220807122825609](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807122825609.png)
+
+We might aggregate them and then apply some non-linear function which makes this basically a little neural network.
+
+The deep of GNN is not like the deep of MLP, CNN and so on. In MLP, we want to model higher order interactions between different parts of the input space. In GNN, we might actually getting more information overall because we actually entering into spaces of the graph.
+
+![image-20220807123215420](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807123215420.png)
+
+Each nodes defines its own subtree. There are many duplicated parts within subtrees. 
+
+![image-20220807123838552](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807123838552.png)
+
+In practice, there's nice **matrix-based representations of the GNN** updates that prevents us from actually duplicating this computation. 
+
+![image-20220807124501739](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807124501739.png)
+
+GCN is a graph convolutional neural network, which is a kind of GNN. The difference is mainly that the convolution operator is used for information aggregation. **GCN is mainly different from GNN in the aggregation step, which uses convolution**
+
+![image-20220807132211328](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807132211328.png)
+
+the $\sigma$ can be any function with can gradient back propagated through it.
+
+assume that the length of vector of $h$ is $d$, so the dimension of $W$ is $d \times d$
+
+**Desirable properties**
+
+* The weight is shared by every update function of a specific layer, **every hidden layer have too weight: $W_1$ and $W_0$, one for neighbor and one for self.** 
+
+* The update is  $O(E)$, because we apply this each time for each edge. Because even if you pass information  both from A->B and from B->A , it's only 2E 
+
+Before we start the part 3, we talk about the inductive and transduction 
+
+![image-20220807131405861](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807131405861.png)
+
+![image-20220807131600651](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807131600651.png)
+
+![image-20220807131526511](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807131526511.png)
+
+![image-20220807131919418](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807131919418.png)
+
+![image-20220807131952969](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807131952969.png)
+
+**Limitations**
+
+* Like LSTM we want the rnn to remember the long distance information, and Res Net for MLP to deal with the too high depth, we should use things like this to deal with the depth in GNN
+* the edge attributes is not directly put in the model.
+
+![image-20220807133011648](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807133011648.png)
+
+![image-20220807133035983](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807133035983.png)
+
+![image-20220807135412077](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807135412077.png)
+
+to understand this slides, we should learn the basic knowledge :
+
+![image-20220807135606329](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807135606329.png)
+
+![image-20220807140445519](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807140445519.png)
+
+Next we talk about the formula of GCN:
+
+![image-20220807140537035](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807140537035.png)
+
+
+
+![image-20220807140930469](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807140930469.png)
+
+![image-20220807141019833](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807141019833.png)
+
+![image-20220807141048940](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807141048940.png)
+
+Then i write the formulas by hand:
+
+![image-20220807144046722](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807144046722.png)
+
+![image-20220807145257440](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807145257440.png)
+
+the $f_e$ and $f_v$ is the non-linear function
+
+So we did a compromise between not have edge feature at all and have the very explicit vector.
+
+![image-20220807150644533](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807150644533.png)
+
+![image-20220807145904560](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807145904560.png)
+
+The left is simple Attention, the left is the multi-head attention
+
+For simply attention:
+
+![image-20220807150909989](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807150909989.png)
+
+For multi-head attention:
+
+![image-20220807150937781](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807150937781.png)
+
+![image-20220807151705874](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807151705874.png)
+
+![image-20220807152137999](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807152137999.png)
 
 
 
@@ -366,4 +507,6 @@ I want to finish a seq2seq but it contains  too much and too difficult for me, s
 ![image-20220807002209851](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807002209851.png)
 
 ![image-20220807022245908](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807022245908.png)
+
+## GNN
 
