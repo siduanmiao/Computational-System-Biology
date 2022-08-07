@@ -510,3 +510,7 @@ I want to finish a seq2seq but it contains  too much and too difficult for me, s
 
 ## GNN
 
+![image-20220807152856464](Lecture%204%20Recurrent%20Neural%20Networks,%20Graph%20Neural%20Networks.assets/image-20220807152856464.png)
+
+PyG is totally new to me, so I just finish a classic cases provided by official documents.
+
