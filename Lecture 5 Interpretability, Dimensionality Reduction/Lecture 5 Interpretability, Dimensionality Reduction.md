@@ -73,3 +73,15 @@ For Code Space: we know the method $g(z)$ that product the x. so we can use $g(z
 ![image-20220807214325446](Lecture%205%20Interpretability,%20Dimensionality%20Reduction.assets/image-20220807214325446.png)
 
 We select particular examples for both prototype images and also prototype criticisms which are the most informative distinguishing that particular class
+
+![image-20220808001339329](Lecture%205%20Interpretability,%20Dimensionality%20Reduction.assets/image-20220808001339329.png)
+
+![image-20220808001633971](Lecture%205%20Interpretability,%20Dimensionality%20Reduction.assets/image-20220808001633971.png)
+
+
+
+![image-20220808001919469](Lecture%205%20Interpretability,%20Dimensionality%20Reduction.assets/image-20220808001919469.png)
+
+![image-20220808002356528](Lecture%205%20Interpretability,%20Dimensionality%20Reduction.assets/image-20220808002356528.png)
+
+![image-20220808002928706](Lecture%205%20Interpretability,%20Dimensionality%20Reduction.assets/image-20220808002928706.png)
