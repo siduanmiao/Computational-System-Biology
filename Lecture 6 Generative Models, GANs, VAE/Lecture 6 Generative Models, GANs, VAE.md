@@ -275,3 +275,8 @@ We use MSE before to evaluate the $\hat x$ and x, but it is sometimes bad, and o
 ![image-20220809194144153](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809194144153.png)
 
 that the power of deep learning doesn't come from the x and the y or the fully connected layer, the power of deep learning really comes from the latent space representation learning
+
+# Practice
+
+I apply GAN in MNIST dataset, to simply my work, I just use the discriminator and generator — are constructed by fully connected layers.
+
