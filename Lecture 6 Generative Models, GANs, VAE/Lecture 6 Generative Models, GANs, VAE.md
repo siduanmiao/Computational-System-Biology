@@ -1,3 +1,5 @@
+
+
 # Vedio
 
 ## Introduction
@@ -100,7 +102,176 @@ as usual we use the website to learn the basic knowledge of it
 
 ![image-20220809004810913](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809004810913.png)
 
-~~~http
-https://zhuanlan.zhihu.com/p/452743042
-~~~
+And we talk about **KL divergence**
 
+![image-20220809093905438](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809093905438.png)
+
+Then we talk about VAE
+
+![image-20220809095142103](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809095142103.png)
+
+![image-20220809100140527](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809100140527.png)
+
+![image-20220809102503330](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809102503330.png)
+
+![image-20220809102727536](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809102727536.png)
+
+![image-20220809104609446](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809104609446.png)
+
+![image-20220809110821650](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809110821650.png)
+
+**直接优化似然函数比较困难，因此我们考虑转而优化似然函数的下界**
+
+![image-20220809110935460](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809110935460.png)
+
+![image-20220809111018507](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809111018507.png)
+
+![image-20220809111125842](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809111125842.png)
+
+![image-20220809111317712](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809111317712.png)
+
+![image-20220809111324460](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809111324460.png)
+
+>using simple words to explain:
+>
+>![image-20220809141721132](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809141721132.png)
+>
+>![image-20220809135117399](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809135117399.png)
+>
+>![image-20220809134807798](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809134807798.png)
+
+
+
+![image-20220809111600512](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809111600512.png)
+
+![image-20220809111903312](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809111903312.png)
+
+![image-20220809112032455](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809112032455.png)
+
+
+
+![image-20220809134825823](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809134825823.png)
+
+![image-20220809134102888](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809134102888.png)
+
+![image-20220809134138523](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809134138523.png)
+
+![image-20220809134409281](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809134409281.png)
+
+
+
+Then we back to our vedio:
+
+![image-20220809115936185](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809115936185.png)
+
+![image-20220809115954051](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809115954051.png)
+
+![image-20220809120154919](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809120154919.png)
+
+![image-20220809120541871](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809120541871.png)
+
+![image-20220809120712516](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809120712516.png)
+
+For examples:
+
+given a bunch of pixels, I'm recognizing a boat and some variation about the boat and a generation network which basically says given that i know that there's a boat it has a length it has a scale it has a size an orientation etc, I'm generating uh images from that underlying representation
+
+![image-20220809121426573](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809121426573.png)
+
+![image-20220809121509422](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809121509422.png)
+
+![image-20220809121630386](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809121630386.png)
+
+![image-20220809131312793](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809131312793.png)
+
+![image-20220809131528892](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809131528892.png)
+
+![image-20220809131850100](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809131850100.png)
+
+![image-20220809132512872](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809132512872.png)
+
+## The ideas contained in the VAE
+
+![image-20220809140527250](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809140527250.png)
+
+![image-20220809140957767](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809140957767.png)
+
+![image-20220809141037367](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809141037367.png)
+
+![image-20220809141112766](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809141112766.png)
+
+![image-20220809141207454](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809141207454.png)
+
+## GAN
+
+![image-20220809154146076](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809154146076.png)
+
+We can see that the output of our generative model is not so good and we want to improve it. One possible method is we hire some people providing feedback of your output and let you improve your model to fake them. We use the NN as these people for evaluation.
+
+![image-20220809160123500](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809160123500.png)
+
+![image-20220809161852375](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809161852375.png)
+
+As usual, I start it by searching on the website to have a basic understand of GAN:
+
+![image-20220809162430351](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809162430351.png)
+
+![image-20220809163303652](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809163303652.png)
+
+![image-20220809163516142](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809163516142.png)
+
+![image-20220809163712274](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809163712274.png)
+
+![image-20220809165151375](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809165151375.png)
+
+![image-20220809165237551](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809165237551.png)
+
+![image-20220809165333048](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809165333048.png)
+
+![image-20220809165439977](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809165439977.png)
+
+![image-20220809165506895](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809165506895.png)
+
+![image-20220809165634758](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809165634758.png)
+
+![image-20220809165712059](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809165712059.png)
+
+So we back to the vedio:
+
+![image-20220809165904848](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809165904848.png)
+
+![image-20220809183927848](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809183927848.png)
+
+![image-20220809184306841](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809184306841.png)
+
+![image-20220809184451406](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809184451406.png)
+
+We use MSE before to evaluate the $\hat x$ and x, but it is sometimes bad, and our GAN is greater than it.
+
+
+
+![image-20220809184754909](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809184754909.png)
+
+## DGCNN: GAN + CNN
+
+![image-20220809190019750](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809190019750.png)
+
+![image-20220809191512109](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809191512109.png)
+
+![image-20220809191536383](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809191536383.png)
+
+![image-20220809191609482](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809191609482.png)
+
+![image-20220809191657695](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809191657695.png)
+
+![img](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/1439869-20200709142052548-1574172421.gif)
+
+![image-20220809192057605](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809192057605.png)
+
+![image-20220809192145312](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809192145312.png)
+
+![image-20220809193801726](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809193801726.png)
+
+![image-20220809194144153](Lecture%206%20Generative%20Models,%20GANs,%20VAE.assets/image-20220809194144153.png)
+
+that the power of deep learning doesn't come from the x and the y or the fully connected layer, the power of deep learning really comes from the latent space representation learning
