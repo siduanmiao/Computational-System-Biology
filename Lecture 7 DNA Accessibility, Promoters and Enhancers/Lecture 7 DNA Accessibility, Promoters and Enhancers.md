@@ -138,6 +138,8 @@
 ![image-20220811184425849](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220811184425849.png)
 
 >map across the genome all of the locations that have one **particular modification** and you can use that to reveal where are the transcription factors bound.
+>
+>![image-20220813134739847](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813134739847.png)
 
 ![image-20220811185021255](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220811185021255.png)
 
@@ -225,11 +227,39 @@
 >
 >为了理解上面这页PPT中最下面的图，我们需要引入一些测序的知识：
 >
->Indexes (also known as “barcodes” or “tags”)：
+>Indexes (also known as “barcodes” or “tags”)
 >
->![image-20220812155914179](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220812155914179.png)
+>adaptor：接头
 >
->所以大概率的意思是，tag5的位置，然后，因为互补配对，下面的是镜像在另一条链的表现。也就是，正链和负链的表现。
+>
+>
+>![image-20220813142148434](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813142148434.png)
+>
+>![image-20220813142211405](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813142211405.png)
+>
+>![image-20220813142319124](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813142319124.png)
+>
+>***下面正式开始建库：***
+>
+>1、 首先把基因组DNA用超声波打断；
+>
+>2、 打断之后会出现末端不平整的情况，所以我们先要将它补齐成平末端；
+>
+>3、 补平之后要在3’端使用klenow酶加上一个特异性碱基A；
+>
+>4、 加上A之后就可以用连接酶加上特异性接头；
+>
+>5、 连好了接头的DNA混合物我们就称为DNA文库；
+>
+>6、 然后进行PCR扩增，以保证我们的DNA样品浓度能够达到上机的要求。
+>
+>![image-20220813142359157](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813142359157.png)
+>
+>
+>
+>到这里我们就能理解，为什么CHIP的方法正负链有镜像的peak了
+>
+>![image-20220813144039907](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813144039907.png)
 
 ![image-20220812154425552](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220812154425552.png)
 
@@ -239,9 +269,7 @@
 >
 >所以，我们考虑从最基本的精度（我认为也可以理解为层面的意思，比如数千碱基的层面，以及这里的以碱基对的层面）来学习。
 >
->左边这个模型我们可以理解为一个文本到语音的转换器，文本就是sequence，文本就是单核苷酸精度的测序结果。语音可以理解为是，在两条链上mapping到的序列的5‘端的位置（这里我也不知道是不是通用的还是只是这里这么理解的，不过确实和上文对应了）
->
->![image-20220812160746260](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220812160746260.png)
+>左边这个模型我们可以理解为一个文本到语音的转换器，文本就是sequence，文本就是单核苷酸精度的测序结果。语音可以理解为是，在两条链上mapping到的位置（这里我也不知道是不是通用的还是只是这里这么理解的，不过确实和上文对应了）
 >
 >这个是一个纯CNN网络，没有池化，首先学习sequence的pattern，像motif这种，然后将他们组合为更高维的pattern，比如说语法，最后将这些进行反卷积，转化为readout的值。
 >
@@ -264,9 +292,108 @@
 ![image-20220812182103849](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220812182103849.png)
 
 >这个说的是递归分解的方法来判断每个核苷酸的贡献，也就是可解释性的问题。
+>
+>![image-20220813091020310](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813091020310.png)
+>
+>![image-20220813091040458](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813091040458.png)
 
-剩余内容有些复杂，留到基础好点了再来看这些算法。
+![image-20220813091245315](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813091245315.png)
+
+> combinatorial syntax：DNA和蛋白质结合的语法
+
+那么，我们能够summarize the patterns learned by the model across the whole genome吗
+
+![image-20220813093834281](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813093834281.png)
+
+>我们对一种蛋白质，使用很多条序列，用一个预测motif的模型进行预测。
+
+![image-20220813094451585](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813094451585.png)
+
+>然后删除掉不可预测的序列
+
+![image-20220813094805417](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813094805417.png)
+
+> 然后我们利用相似度进行聚类后，将平均量折叠成非冗余motif
+>
+> ![image-20220813094823608](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813094823608.png)
+
+![image-20220813100118427](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813100118427.png)
+
+>CWM：contribution weight matrix 贡献权重矩阵
+>
+>PWM：Position weight matrix，also known as a **position-specific weight matrix (PSWM)** or **position-specific scoring matrix (PSSM)**, is a commonly used representation of [motifs](https://en.wikipedia.org/wiki/Sequence_motif) (patterns) in biological sequences.
+>
+>PFM：position frequency matrix
+>
+>PPM：position probability matrix
+>
+>![image-20220813100930723](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813100930723.png)
+>
+>Then PWM
+>
+>![image-20220813101158397](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813101158397.png)
+>
+>然后我们来分析这张图，首先，对于一个TF，它并不只有一种相关的motif，**一个DNA结合蛋白可能对应多个motif，motif也会对应多个蛋白**，左边的ID打头的字母表示的是和哪个TF相关，Motif是表示的它是哪个TF所结合到模体上的，像N2这种是motif结合了Zic3然后Zic3招募Nanog蛋白质的，是间接的过程，第三个图是实际实验中的对这些位点所测的针对四种TF的位点结合情况，可以看到，直接结合的，峰值都比较高，而间接结合的峰值都比较低。
+
+![image-20220813103134846](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813103134846.png)
+
+>RPM：Reads per million mapped reads
+>
+>这里就以Nanog的motif为例来阐述前面讲的东西，可以看到TCA是这个motif核心的位点，通过晶体结构验证，我们能够很清楚的看到，神经网络可以很好的预测DNA与蛋白质结合位点的碱基。
+
+到这里我们对motif的理解差不多了，但是我们前面提到了，我们想要学习的是syntax，也就是arrangement of these motifs in the sequences that drive cooperative binding.
+
+![image-20220813112243947](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813112243947.png)
+
+>TCA是我们前面确定的Nanog的center，然后我们看它附近上下100bp的序列，我们可以惊讶的发现，每隔10.5个bp，都会周期性的出现重要性的小峰值。而我们知道DNA双螺旋中，同一条线上的两个碱基的距离是10.5bp，而右下角的图是实验的验证，证明了确实存在这个现象。
+>
+>homodimer：同源二聚体
+>
+>homeobox家族的TF倾向于以同源二聚体的形式结合DNA，
+
+![image-20220813113552479](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813113552479.png)
+
+>这就是二聚体的距离的例子
+
+![image-20220813114349635](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813114349635.png)
+
+>spacing：间距
+>
+>这个是nanog和其他蛋白质共同作用所对应的motif，也能看得出来是有10.5bp的倾向性的。
+
+![image-20220813114738831](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813114738831.png)
+
+>in silico：experiment is one performed on computer or via computer simulation
+>
+>in vivo：within the living
+>
+>这种方法是在合成的DNA序列上，也就是随机的DNA序列，然后我们设置了两个motif，然后我们改变这两个的距离，然后我们实验模型预测结合这两个蛋白质。
+
+![image-20220813130808024](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813130808024.png)
+
+>第二种是在真实的DNA序列上让motif突变，
+
+然后是第一种方法：
+
+![image-20220813130912495](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813130912495.png)
+
+>首先我们创建了两个随机的DNA序列，很明显蛋白质不能结合到这个序列上，然后我们在如图所示的两个位置上分布加上Nanog和Oct4-Sox2的motif。然后我们用Oct4-Sox2向左侧移动，这样两个motif开始逐渐靠近。然后我们预测值就会发生变化。
+>
+>下面这张图就是高度发生的倍数变化，我们可以看到，Nanog向Oct4-Sox2移动几乎不对后者发生影响，而反之则影响很大。这个和实验结果也是吻合的，因为O是一个classic pioneer TF，结合DNA的时候不关心它附近有什么。相反，对N来说，O靠近它的时候它不仅以指数的形式上升，而且还有10.5bp左右的周期性。
+
+第二种方法：
+
+![image-20220813170209652](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813170209652.png)
+
+>这种方法是，利用突变的方法删掉实际的DNA序列中的一个motif来观察对另一个motif的影响
+
+![image-20220813170331650](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813170331650.png)
+
+>我们可以通过这种方法来学很多对组合。
+
+
 
 ## Lecture 2
 
-nVidia的工作，留到后面看。
+nVidia的工作，留到后面看，现在是完全听不懂在做什么。
+
