@@ -107,6 +107,10 @@
 >
 > 图中的每个字母的高度与该位置的相应碱基或氨基酸残基的出现频率成正比，常以bits为单位。每个位置的字母按照保守性从大到小排列，可以方便的从顶端的字母识别保守序列。
 >
+> ~~~http
+> https://en.wikipedia.org/wiki/Sequence_logo
+> ~~~
+>
 > **纵坐标的单位常见有两种，一种是百分比，另一种是bits。**
 >
 > 前一种好理解，每个字母的出现频率；对于后一种，可参考下面的公式：
@@ -332,6 +336,12 @@
 >Then PWM
 >
 >![image-20220813101158397](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220813101158397.png)
+>
+>当然，PSSM和PWM在有些地方会有区分，比如下面这种我们称为PSSM，而PPM有时也称为PWM
+>
+>![image-20220814192356091](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220814192356091.png)
+>
+>![image-20220814192418276](Lecture%207%20DNA%20Accessibility,%20Promoters%20and%20Enhancers.assets/image-20220814192418276.png)
 >
 >然后我们来分析这张图，首先，对于一个TF，它并不只有一种相关的motif，**一个DNA结合蛋白可能对应多个motif，motif也会对应多个蛋白**，左边的ID打头的字母表示的是和哪个TF相关，Motif是表示的它是哪个TF所结合到模体上的，像N2这种是motif结合了Zic3然后Zic3招募Nanog蛋白质的，是间接的过程，第三个图是实际实验中的对这些位点所测的针对四种TF的位点结合情况，可以看到，直接结合的，峰值都比较高，而间接结合的峰值都比较低。
 
