@@ -118,7 +118,11 @@ There we talk about linear way: **Principal Component Analysis**
 >
 >![image-20220817004756507](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817004756507.png)
 >
+>![image-20220817100609061](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817100609061.png)
+>
 >也就是说，我希望我的协方差矩阵是对角矩阵，这样就说明我去相关性成功了。我们知道Q是线性变换，也就是说，我把原来x的数据（当然，是把坐标，也就是列），投影到了新的空间后，使得这个空间在某些维度上的变化非常小，这样可以删除这些低变化维度。
+>
+>
 >
 >![image-20220817005401945](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817005401945.png)
 >
@@ -127,4 +131,22 @@ There we talk about linear way: **Principal Component Analysis**
 >然后因为对角矩阵是按特征值的大小从大到小排的，所以我们知道大的特征值说明相关性越强，这样我们需要多少就取前几行就行
 >
 >![image-20220817010318503](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817010318503.png)
+>
+>
+>
+>这个怎么理解呢？我们从主成分的求解方式来理解：
+>
+>![image-20220817104822082](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817104822082.png)
+>
+>去中心化的原因：
+>
+>![image-20220817011846293](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817011846293.png)
+>
+>![image-20220817112219959](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817112219959.png)
+>
+>那么我们会思考，如果不去中心化呢，也就是说，如果我们的原始数据不想要让它归零呢？
+>
+>![image-20220817115023140](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817115023140.png)
+>
+>
 
