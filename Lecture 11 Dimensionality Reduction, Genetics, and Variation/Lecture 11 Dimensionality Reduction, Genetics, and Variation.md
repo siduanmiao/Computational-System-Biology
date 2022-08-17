@@ -64,6 +64,46 @@
 
 There are many ways of learning these manifolds, including linear ways and non-linear ways.
 
+在学习降维之前，我们首先要了解什么是维数灾难，为什么要降维：
+
+![image-20220817211820735](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817211820735.png)
+
+>维数灾难包括两个方面，一个是稀疏性使得采样困难，一个是维数高的话，数据和数据之间的距离开始趋向于一个相同的值。
+
+10 维度
+
+![img](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/v2-9dab4af6ced99aeb665cea8b8e406839_720w.png)
+
+50维度
+
+
+
+![img](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/v2-af6c94ece63068125d46030ce2877aa6_720w.png)
+
+100维度
+
+![img](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/v2-dfe6c915f06ef287c515218d04bd8572_720w.png)
+
+
+
+500维度
+
+![img](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/v2-ac81a7fe19f66f6d18597212fd9bac3d_720w.png)
+
+
+
+1000维度
+
+![img](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/v2-e425f1ca15e9982b4e4250d032b0c3ab_720w.png)
+
+
+
+5000维度
+
+![img](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/v2-bd0850372c1725dc025ebc0fdae95739_720w.png)
+
+## Part 4
+
 There we talk about linear way: **Principal Component Analysis**
 
 ![image-20220816165603098](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220816165603098.png)
@@ -148,5 +188,72 @@ There we talk about linear way: **Principal Component Analysis**
 >
 >![image-20220817115023140](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817115023140.png)
 >
+>然后我们用投影的方法来理解下矩阵的变换起到的效果：
 >
+>![image-20220817151317290](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817151317290.png)
+>
+>![image-20220817151238424](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817151238424.png)
 
+SVD：
+
+>![image-20220817161914389](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817161914389.png)
+>
+>![image-20220817151822748](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817151822748.png)
+>
+>**这里要注意，我们这里说特征分解只能分解方阵，并不是说PCA只能降维方阵了，因为PCA实际上做的是计算X^T^ X的特征分解。**
+>
+>到上面这一步，我们已经能够把矩阵A分解成三个矩阵乘积了，那为什么SVD可以用来降维呢？
+>
+>![image-20220817153139842](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817153139842.png)
+>
+>![image-20220817154919149](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817154919149.png)
+>
+>![image-20220817155456224](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817155456224.png)
+>
+>![image-20220817155032093](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817155032093.png)
+>
+>而和PCA相似的，我们也可以将那些“蕴含信息多的”保留下来，而舍弃掉信息少的。
+>
+>![image-20220817162548148](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817162548148.png)
+>
+>![image-20220817162631833](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817162631833.png)
+>
+>那么，PCA和SVD的联系是什么呢？
+>
+>![image-20220817163210935](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817163210935.png)
+>
+>![image-20220817163325591](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817163325591.png)
+>
+>PCA中只用到了X*X^T^的特征矩阵。
+>
+>![image-20220817163847852](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817163847852.png)
+>
+>这一段的例子是基于行为样本列为特征说的，所以里面的说法和我的例子中的写法是恰恰相反的，但是体现的含义是，SVD能够删减特征也能删减样本，PCA只能做一个。
+
+![image-20220817204414689](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817204414689.png)
+
+>这个就是PCA处理MNIST的图。
+
+## Part 5
+
+Then we talk about the non-linear way: `t-SNE`
+
+首先我想要先了解下，什么是线性降维，什么是非线性降维。
+
+>我们首先来看上面那个PCA处理MNIST，我们的PCA是找到数据中**方差最大**的方向并选为主方向，并依次选择稍次的主方向，而为什么这个可视化后会使得不同label间有区分度呢？
+>
+>![image-20220817204724017](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817204724017.png)
+>
+>如上图二维到一维的PCA所示，主方向是方差最大的方向，而相同label的点在高维空间中，如果是有区分度的话，那么互相之间也应该是组间距离比较远，组内距离比较近，这样降维后才有区分度。
+>
+>★线性降维技术。侧重让不相似的点在低维表示中分开。
+>
+>①PCA（Principle Components Analysis，主成分分析）
+>
+>②MDS（Multiple Dimensional Scaling，多维缩放）等
+>
+>★非线性降维技术（广义上“非线性降维技术”≈“流形学习”，狭义上后者是前者子集）。这类技术假设高维数据实际上处于一个比所处空间维度低的非线性流形上，因此侧重让相似的近邻点在低维表示中靠近。
+
+![image-20220817215937677](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817215937677.png)
+
+![image-20220817215950833](Lecture%2011%20Dimensionality%20Reduction,%20Genetics,%20and%20Variation.assets/image-20220817215950833.png)
