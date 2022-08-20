@@ -126,6 +126,14 @@
 ![image-20220819144923058](Lecture%2012%20GWAS%20and%20Rare%20variants.assets/image-20220819144923058.png)
 
 >这里就是SNP的分类以及一些例子。
+>
+>注意，这里的minor allele frequency不能理解为最小的等位基因频率，这样会出问题的：
+>
+>![image-20220819234833152](Lecture%2012%20GWAS%20and%20Rare%20variants.assets/image-20220819234833152.png)
+>
+>而我们用MAF来代指这个variant位点的frequency，所以后面我们看到45%这种也不用惊讶。
+>
+>而Part 2的第一张图，表达的是GWAS适合处理多基因遗传病，而多基因就代表着被多个位点所影响，而位点多了，每个位点的影响就小了，那么疾病在这个位点是选G还是C什么的差别不会很大，这样就前后照应了。
 
 ![image-20220819145424039](Lecture%2012%20GWAS%20and%20Rare%20variants.assets/image-20220819145424039.png)
 
@@ -141,7 +149,9 @@
 
 >这张图描述的跟上一张差不多，原因也很简单，如果一个基因的作用非常大，进化不会允许它频率变得很大。
 >
->右上角的图的左上角的点离mendacious study就是我们前面描绘的传统方法。
+>右上角的图的左上角的点离mendacious study就是我们前面描绘的传统方法--linkage analysis。
+>
+>我们来解读一下右上角这张图，这张图
 
 然后我们详细说明一下linkage analysis
 
@@ -212,7 +222,7 @@
 
 ![image-20220819204244223](Lecture%2012%20GWAS%20and%20Rare%20variants.assets/image-20220819204244223.png)
 
->右边这个图，我是按照HiC的理解来的，也就是说，这个纵轴实际上是交互矩阵的对角线。也就是说，我把交互矩阵（方阵）的对角线给画了出来，在这个地方，交互矩阵是所有SNP之间相关性矩阵，这个图说明了，SNP之间也是有一个个相互作用比较强的簇的，也就是共进化的簇，簇与簇之间的，和其他的点相关性都不强的，称为recombination hotspot。
+>右边这个图，我是按照HiC的理解来的，也就是说，这个纵轴实际上是交互矩阵的对角线。也就是说，我把交互矩阵（方阵）的对角线给画了出来，在这个地方，交互矩阵是所有SNP之间相关性矩阵（里面放的是相关系数，这个相关系数在前面的LD讲了），这个图说明了，SNP之间也是有一个个相互作用比较强的簇的，也就是共进化的簇，簇与簇之间的，和其他的点相关性都不强的，称为recombination hotspot。
 >
 >Recombination hotspots are **local regions of chromosomes**, on the order of one or two thousand base pairs of DNA (or less—their length is difficult to measure), in which recombination events tend to be concentrated.
 >
@@ -231,5 +241,9 @@
 ## Part 4
 
 我们现在通过前面的内容已经能够发现association between snps and disease，那么我们想要figure out how it works.
+
+在下一章讲了机制。
+
+## Lecture
 
 这里讲的是他们组内的工作，有点复杂，听不很懂。
