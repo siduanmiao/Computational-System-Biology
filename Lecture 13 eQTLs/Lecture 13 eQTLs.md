@@ -355,3 +355,17 @@ fine mapping这一块老师是用的自己组内的工作，bayesian fine mappin
 >iMWAS：imputed MWAS
 >
 >iM：imputed methylation is the genetic component of methylation，iM是我们meQTL找到的M，它们不太可能是D的结果，所以iM和D之间是单向图而不是双向。 
+>
+>Impute愿意是归罪,归咎,归因,非难,诋毁。
+>
+>统计遗传学中意为预测、插补，由已知的基因型预测未知的基因型并对缺失的数据进行补缺。
+
+![image-20220821120624573](Lecture%2013%20eQTLs.assets/image-20220821120624573.png)
+
+>这个是eQTL的经典流程，左上角的是测量每个cell的expression的流程，因为我们要研究的是某一个gene的expression作为中间分子表型，所以选了左边哪个matrix的一行
+>
+>右上角的图，横轴应该是A的含量，分别在0 0.5 1附近，因为一些校正使得不完全都在正好的0 0.5 1.纵轴应该是什么不太清楚，然后下面的genotype其实指的也就是这个AA AG AT这种。
+
+![image-20220821121253646](Lecture%2013%20eQTLs.assets/image-20220821121253646.png)
+
+>这里的PC是principle components for the genotypes of those individuals的意思。其实就是一些可能跟测量基因型有关联的因素，比如country。下面的ePC就是跟测量表达有关联的因素，比如什么时候测量的，谁负责测量的等等。
