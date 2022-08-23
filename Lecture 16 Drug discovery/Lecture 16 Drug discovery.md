@@ -107,5 +107,101 @@
 
 ![image-20220822214043319](Lecture%2016%20Drug%20discovery.assets/image-20220822214043319.png)
 
->当然，结构信息也不能丢失。
+>当然，结构信息也不能丢失。我们看上面的矩阵，每一个compound对应着一个target分数的向量，这个也被拿进去训练了。
 
+![image-20220823203652624](Lecture%2016%20Drug%20discovery.assets/image-20220823203652624.png)
+
+>既然前面我们学到了更好的表示方法，那么我们就可以用来预测。比如这个是预测对COVID-19的antiviral activity
+
+![image-20220823204449728](Lecture%2016%20Drug%20discovery.assets/image-20220823204449728.png)
+
+>然后我们想要预测二者的相互作用。
+
+![image-20220823213606242](Lecture%2016%20Drug%20discovery.assets/image-20220823213606242.png)
+
+>整个模型的示意图。
+
+![image-20220823213719931](Lecture%2016%20Drug%20discovery.assets/image-20220823213719931.png)
+
+>可见，将生物学信息容纳进去，确实能够提高模型的效果。
+
+![image-20220823214457194](Lecture%2016%20Drug%20discovery.assets/image-20220823214457194.png)
+
+>但是虚拟筛选如果想要筛选所有的化合物空间实在是不可行
+
+![image-20220823214522984](Lecture%2016%20Drug%20discovery.assets/image-20220823214522984.png)
+
+>我们想要生成molecular structure，但是我们的深度学习模型习惯于生成数值型的。
+
+![image-20220823215126725](Lecture%2016%20Drug%20discovery.assets/image-20220823215126725.png)
+
+![image-20220823215209654](Lecture%2016%20Drug%20discovery.assets/image-20220823215209654.png)
+
+>但是smile的问题在于，很相似的结构，表示的smile字符串却差别非常大。
+>
+>就是说，虽然smile格式和结构是一一对应的，但是相似的结构却不一定有相似的smile格式，我们学smile格式的表示，和化合物的表示应该也会有一些损失。
+
+![image-20220823215753995](Lecture%2016%20Drug%20discovery.assets/image-20220823215753995.png)
+
+![image-20220823215803117](Lecture%2016%20Drug%20discovery.assets/image-20220823215803117.png)
+
+>这个模型还不如第一个模型，效果非常差。
+
+![image-20220823220550374](Lecture%2016%20Drug%20discovery.assets/image-20220823220550374.png)
+
+>如何理解inductive bias？
+>
+>为什么说CNN的inductive bias符合围棋？是因为效果好，反过来就说符合吗？RNN的inductive bias又是什么呢？
+>
+>归纳偏置在机器学习中是一种很微妙的概念：在**机器学习中，很多学习算法经常会对学习的问题做一些假设，这些假设就称为归纳偏置（inductive bias）**。
+>
+>归纳偏置这个译名可能不能很好地帮助理解，不妨拆开来看：
+>
+>- **归纳**：是自然科学中常用的两大方法之一（归纳与演绎，inductive and deduction），指的是从一些例子中寻找共性，泛化，形成一个比较通用的过程；
+>- **偏置**：是指我们对模型的偏好。
+>
+>因此，**归纳偏置可以理解为，从现实生活中观察到的现象中归纳出一定的规则（heuristics），然后对模型做一定对约束，从而起到“模型选择”的作用。即从假设空间中选择出更符合现实规则的模型。**其实，贝叶斯学习中的“先验（prior）”这个叫法，可能比“归纳偏置”更直观一些。
+>
+>归纳偏置在机器学习中几乎无处不可见，老生常谈的“奥卡姆剃刀”原理，即希望学习到的模型复杂度更低，就是一种归纳偏置。另外，还可以看到一些更强的假设：KNN中假设空间中相邻的样本倾向于属于同一类；SVM中假设好的分类器应该最大化边界距离；等等。
+>
+>在深度学习中也是一样。以神经网络为例，各式各样的网络结构/组件/机制往往就来源于归纳偏置。在卷积神经网络CNN中，我们假设特征具有局部性（locality）的特性，即当我们把相邻的一些特征放在一起，会更容易得到“解”；在循环神经网络RNN中，我们假设每一时刻的计算依赖于历史计算结果；还有注意力机制，也是基于从人的直觉，生活经验归纳得到的规则。
+>
+>在自然语言处理领域赫赫有名的word2vec，以及一些基于共现窗口的词潜入方法，都是基于分布式假设：A word's meaning is given by the words that frequently appear close-by. 这当然也可以看作是一种归纳偏置；一些自然语言理解的模型中加入解析树，也可以类似地理解。都是为了选择“更好”的模型。
+>
+>inductive bias是关于目标函数的必要假设。
+>
+>CNN的inductive bias应该是locality和spatial invariance，即空间相近的grid elements有联系，比较远的则没有联系，以及空间不变性（kernel权重共享）
+>
+>RNN的inductive bias是sequentiality和time invariance，即序列顺序上的timesteps有联系，以及时间变换的不变性（rnn权重共享）
+>
+>那么，我们的分子能提供什么样的inductive bias呢？
+>
+>可以看作是一个宽度很小的稀疏的树
+
+![image-20220823221037070](Lecture%2016%20Drug%20discovery.assets/image-20220823221037070.png)
+
+
+
+>这就是作者设计的模型，这些motif在化学上也有意义，是很好的特征。
+>
+>同时，motif的种类也不会很多，但是可以cover很多的分子。
+
+![image-20220823224743927](Lecture%2016%20Drug%20discovery.assets/image-20220823224743927.png)
+
+>相当于在中间拿这个tree做了一个中介。两步encoder和两步decoder，因为tree比graph好生成。我们的graph和junction tree一起输入进GNN中
+
+![image-20220823225043625](Lecture%2016%20Drug%20discovery.assets/image-20220823225043625.png)
+
+>这个是encoder的做法
+
+![image-20220823225343973](Lecture%2016%20Drug%20discovery.assets/image-20220823225343973.png)
+
+![image-20220823225351784](Lecture%2016%20Drug%20discovery.assets/image-20220823225351784.png)
+
+>这个是decoder的做法，我们是一个个motif添加的
+
+![image-20220823225411979](Lecture%2016%20Drug%20discovery.assets/image-20220823225411979.png)
+
+>因为我们把node by node转化为了motif，这样比单个分子的重建难度更低了
+
+![image-20220823225830566](Lecture%2016%20Drug%20discovery.assets/image-20220823225830566.png)
