@@ -250,3 +250,15 @@
 >校正后应该是batch不影响结果，也就是说不同的batch之间应该是没有距离的，混合在一起的。
 
 <img src="Lecture%2020%20Imaging%20applications%20in%20healthcare.assets/image-20220827164414765.png" alt="image-20220827164414765" style="zoom:67%;" />
+
+## Lecture 4/5
+
+这里的两篇工作：
+
+> 1. VoxelMorph: A Learning Framework for Deformable Medical Image Registration
+>
+>    无监督的医学图像配准模型
+>
+> 2. Automatic Pathology Detection 自动病理检测，并详细介绍了Y-Net和PS-DeVCEM模型
+
+因为深度学习的底子并不是特别好，所以这里就没有听完本节的两篇工作。
